@@ -1,0 +1,17 @@
+.env
+
+venv/
+env/
+ENV/
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.ogg
+*.mp3
+*.wav
+
+.vscode/
+.idea/
+.DS_Store
