@@ -75,8 +75,8 @@ async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if analysis.get("has_errors") and analysis.get("corrections"):
             feedback_text += " ** Feedback & Corrections:**\n"
             for corr in analysis["corrections"]:
-                feedback_text += f"• ~{corr['original']}~ ~**{corr['suggestion']}**\n  _{corr['explanation']}_\n"
-            feedback_text += f"\n✨ ** Better way to say it:**\n\"{analysis['improved_sentence']}\"\n\n"
+                feedback_text += f"• ~ {corr['original']}~ ~**{corr['suggestion']}**\n  _{corr['explanation']}_\n"
+            feedback_text += f"\n ** Better way to say it:**\n\"{analysis['improved_sentence']}\"\n\n"
         else:
             feedback_text += " ** Great job!** No major grammar issues found.\n\n"
 
@@ -92,7 +92,7 @@ async def handle_voice(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await update.message.reply_voice(voice=audio)
 
     except Exception as e:
-        print(f"Error pada handle_voice: {e}")
+        print(f"Error on handle_voice: {e}")
         await status_msg.edit_text("An error occurred while processing your voice note.")
 
     finally:

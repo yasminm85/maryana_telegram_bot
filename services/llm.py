@@ -41,7 +41,7 @@ You MUST respond ONLY in valid JSON format matching this schema:
 def analyze_and_respond(user_text: str) -> dict:
     try:
         response = deepseek_client.chat.completions.create(
-            model="deepseek-chat",
+            model="deepseek-v4-pro",
             response_format={"type": "json_object"},
             messages=[
                 {"role": "system", "content": SYSTEM_PROMPT},
@@ -51,7 +51,7 @@ def analyze_and_respond(user_text: str) -> dict:
         result = json.loads(response.choices[0].message.content)
         return result
     except Exception as e:
-        print(f"Error pada LLM DeepSeek: {e}")
+        print(f"Error on LLM DeepSeek: {e}")
         return {
             "has_errors": False,
             "corrections": [],
